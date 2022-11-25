@@ -1,0 +1,4 @@
+#Config file for custom corporations
+#Enter corp names followed by a newline (remove the hashtag) or use '-ac' to add
+#example corp 1
+#example corp 2
