@@ -1,24 +1,31 @@
 #KingOfMongeese
 import os
-
+import platform
 
 
 
 def install():
-    print('Missing Module... art')
+    print('***Missing Module... art***')
     print('Installing module... art')
     try:
         os.system('pip install art')
         import art
     except:
-        print('Unable to install through pip')
+        print('***Unable to install through pip***')
         cont = input('Try installing pip now?(y/n)').strip().lower()
         if cont.startswith('y'):
-            os.system('sudo apt update && sudo apt install python3-pip')
-            os.system('pip install art')
+            if platform.system == 'Linux':
+                os.system("curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py")
+                os.system("python3 get-pip.py")
+                os.system('pip install art')
+            elif platform.system == "Windows":
+                print("Windows")
+                os.system("curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py")
+                os.system("python get-pip.py")
+                os.system('pip install art')
 try:
     import art
-    print('art Found')
+    print('Art Found')
     print('setup complete')
     
 except:
@@ -27,7 +34,7 @@ except:
         import art
         print('art Found \nSetup complete')
     except:
-        print('Setup incomplete')
+        print('Setup incomplete. Is Python installed?')
 
     
 
